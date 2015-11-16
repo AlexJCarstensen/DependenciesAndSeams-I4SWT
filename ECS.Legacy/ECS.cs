@@ -6,11 +6,11 @@
         private readonly ITempSensor _tempSensor;
         private readonly IHeater _heater;
 
-        public ECS(int thr)
+        public ECS(int thr, ITempSensor tempSensor, IHeater heater)
         {
+            _tempSensor = tempSensor;
+            _heater = heater;
             SetThreshold(thr);
-            _tempSensor = new TempSensor();
-            _heater = new Heater();
         }
 
         public void Regulate()
@@ -35,7 +35,7 @@
 
         public int GetCurTemp()
         {
-            return 0;
+           return _tempSensor.GetTemp();
         }
 
         public bool RunSelfTest()

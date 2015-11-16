@@ -1,6 +1,6 @@
 ﻿namespace ECS.Legacy
 {
-    internal interface ITempSensor
+    public interface ITempSensor
     {
         int GetTemp();
         bool RunSelfTest();
